@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XnaContent xmlns:Kadro="Kadro">
+	<Asset Type="Kadro:SpriteSheet">
+    <Name>tower_block_sheet</Name>
+		<sprites>
+			<Item>
+				<Key>bottom_block_32</Key>
+				<Value>0 0 32 32</Value>
+			</Item>
+			<Item>
+				<Key>tower_block_1_32</Key>
+				<Value>33 0 32 32</Value>
+			</Item>
+			<Item>
+				<Key>tower_block_2_32</Key>
+				<Value>66 0 32 32</Value>
+			</Item>
+			<Item>
+				<Key>tower_block_3_32</Key>
+				<Value>99 0 32 32</Value>
+			</Item>
+			<Item>
+				<Key>hook</Key>
+				<Value>132 0 5 32</Value>
+			</Item>
+			<Item>
+				<Key>background_skyscraper</Key>
+				<Value>0 33 32 96</Value>
+			</Item>
+			<Item>
+				<Key>cloud_0</Key>
+				<Value>33 34 33 22</Value>
+			</Item>
+			<Item>
+				<Key>cloud_1</Key>
+				<Value>33 57 20 24</Value>
+			</Item>
+			<Item>
+				<Key>cloud_2</Key>
+				<Value>33 82 29 21</Value>
+			</Item>
+			<Item>
+				<Key>ground</Key>
+				<Value>0 130 96 32</Value>
+			</Item>
+		</sprites>
+		<animations>
+			<Item>
+				<Key>test_anim</Key>
+				<Value>
+					<Item>cloud_1</Item> 
+					<Item>cloud_2</Item>
+				</Value>
+			</Item>
+		</animations>
+	</Asset>
+</XnaContent>

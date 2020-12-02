@@ -1,0 +1,5 @@
+﻿
+stomp - SoundEffect: 
+- https://opengameart.org/content/mech-stomp-step-sound
+- License: CC0 public domain
+- Copyright: © 2012 qubodup
