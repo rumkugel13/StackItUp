@@ -8,10 +8,10 @@ A tower stacking game made in [MonoGame](https://www.monogame.net/)
 
 ## Features
 - Physics simulation
+- Android version
 
 ## Issues
 - UI incomplete
-- There was supposed to be an android version, but .net core is not yet compatible with android
 
 # Build Instructions
 
@@ -19,6 +19,7 @@ A tower stacking game made in [MonoGame](https://www.monogame.net/)
 - .Net Core 3.1
 - Visual Studio (Code) or .Net Core SDK
 - MonoGame.Framework (provided via NuGet)
+- Xamarin and Android SDK (Android version)
 
 ## Build
 1. Clone this repository

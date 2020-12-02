@@ -14,7 +14,7 @@ namespace StackItUp.DesktopGL
         [STAThread]
         static void Main()
         {
-            using (var game = new Game1(Game1.Platform.Desktop))
+            using (var game = new Game1())
                 game.Run();
         }
     }

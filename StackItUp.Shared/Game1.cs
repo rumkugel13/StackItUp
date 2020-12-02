@@ -17,11 +17,9 @@ namespace StackItUp.Shared
         SpriteBatch spriteBatch;
 
         private GUISceneManager sceneManager;
-        public static Platform CurrentPlatform { get; private set; }
 
-        public Game1(Platform platform)
+        public Game1()
         {
-            CurrentPlatform = platform;
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
@@ -49,7 +47,7 @@ namespace StackItUp.Shared
 
             this.Window.AllowUserResizing = false;
 
-            if (CurrentPlatform != Platform.Mobile)
+            if (MonoGame.Framework.Utilities.PlatformInfo.MonoGamePlatform != MonoGame.Framework.Utilities.MonoGamePlatform.Android)
             {
                 Logger.Start();
                 WindowSettings.Initialize(this, this.graphics);
