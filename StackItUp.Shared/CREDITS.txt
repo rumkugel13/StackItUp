@@ -1,4 +1,13 @@
-﻿
+Libraries:
+Monogame
+- http://www.monogame.net/
+- Copyright © 2009-2020 The MonoGame Team
+- License: Microsoft Public License (Ms-PL)
+Kadro
+- Not publicly available
+- Copyright © 2019-2020 rumkugel13
+
+Assets:
 stomp - SoundEffect: 
 - https://opengameart.org/content/mech-stomp-step-sound
 - License: CC0 public domain
