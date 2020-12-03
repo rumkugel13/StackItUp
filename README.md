@@ -20,6 +20,7 @@ A tower stacking game made in [MonoGame](https://www.monogame.net/)
 - Visual Studio (Code) or .Net Core SDK
 - MonoGame.Framework (provided via NuGet)
 - Xamarin and Android SDK (Android version)
+- Kadro (provided via DLL)(Currently closed source)
 
 ## Build
 1. Clone this repository
