@@ -4,7 +4,7 @@
 
 ## About
 
-A tower stacking game made in [MonoGame](https://www.monogame.net/)
+A tower stacking game inspired by [Tower Bloxx](https://flashgaming.fandom.com/wiki/Tower_Bloxx) made in [MonoGame](https://www.monogame.net/)
 
 ## Features
 - Physics simulation
