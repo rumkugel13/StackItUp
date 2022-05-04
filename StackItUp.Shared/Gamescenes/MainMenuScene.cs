@@ -70,39 +70,47 @@ namespace StackItUp
         private void CreateScene()
         {
             SpriteFont largeFont = Assets.Get<SpriteFont>("Fonts/Arial24");
+            Point btSize = new Point(400, 50);
+            int multiplier = 1;
+            if (MonoGame.Framework.Utilities.PlatformInfo.MonoGamePlatform == MonoGame.Framework.Utilities.MonoGamePlatform.Android)
+            {
+                largeFont = Assets.Get<SpriteFont>("Fonts/Arial24x2");
+                multiplier = 2;
+                btSize = new Point(400 * 2, 50 * 2);
+            }
 
             TextBlock headLine = new TextBlock(largeFont, "Main Menu");
             headLine.Alignment = Alignment.Center;
-            headLine.PreferredPosition = new Point(0, -170);
+            headLine.PreferredPosition = new Point(0, -170 * multiplier);
             this.scene.AddChild(headLine);
 
             this.singleplayer = new Button(largeFont, "Singleplayer");
             this.singleplayer.Alignment = Alignment.Center;
-            this.singleplayer.PreferredSize = new Point(400, 50);
-            this.singleplayer.PreferredPosition = new Point(0, -90);
+            this.singleplayer.PreferredSize = btSize;
+            this.singleplayer.PreferredPosition = new Point(0, -90 * multiplier);
             this.singleplayer.Border.Thickness = 4;
             this.scene.AddChild(this.singleplayer);
 
             this.multiplayer = new Button(largeFont, "Multiplayer");
             this.multiplayer.Alignment = Alignment.Center;
-            this.multiplayer.PreferredSize = new Point(400, 50);
-            this.multiplayer.PreferredPosition = new Point(0, -30);
+            this.multiplayer.PreferredSize = btSize;
+            this.multiplayer.PreferredPosition = new Point(0, -30 * multiplier);
             this.multiplayer.Border.Thickness = 4;
             this.scene.AddChild(this.multiplayer);
             this.multiplayer.SetEnabled(false);
 
             this.settings = new Button(largeFont, "Settings");
             this.settings.Alignment = Alignment.Center;
-            this.settings.PreferredSize = new Point(400, 50);
-            this.settings.PreferredPosition = new Point(0, 30);
+            this.settings.PreferredSize = btSize;
+            this.settings.PreferredPosition = new Point(0, 30 * multiplier);
             this.settings.Border.Thickness = 4;
             this.scene.AddChild(this.settings);
             this.settings.SetEnabled(false);
 
             this.exit = new Button(largeFont, "Exit");
             this.exit.Alignment = Alignment.Center;
-            this.exit.PreferredSize = new Point(400, 50);
-            this.exit.PreferredPosition = new Point(0, 90);
+            this.exit.PreferredSize = btSize;
+            this.exit.PreferredPosition = new Point(0, 90 * multiplier);
             this.exit.Border.Thickness = 4;
             this.scene.AddChild(this.exit);
         }

@@ -63,23 +63,33 @@ namespace StackItUp
             SpriteFont mediumFont = Assets.Get<SpriteFont>("Fonts/Arial16");
             SpriteFont veryLargeFont = Assets.Get<SpriteFont>("Fonts/Arial32");
 
+            int multiplier = 1;
+            Point btSize = new Point(150, 40);
+            if (MonoGame.Framework.Utilities.PlatformInfo.MonoGamePlatform == MonoGame.Framework.Utilities.MonoGamePlatform.Android)
+            {
+                mediumFont = Assets.Get<SpriteFont>("Fonts/Arial16x2");
+                veryLargeFont = Assets.Get<SpriteFont>("Fonts/Arial32x2");
+                multiplier = 2;
+                btSize = new Point(150 * 2, 40 * 2);
+            }
+
             // score labels etc, static elements
             lbPoints = new Label(mediumFont, "Points: 0");
             lbPoints.Alignment = Alignment.TopLeft;
-            lbPoints.PreferredPosition = new Point(30, 30);
-            lbPoints.PreferredSize = new Point(150, 40);
+            lbPoints.PreferredPosition = new Point(30 * multiplier, 30 * multiplier);
+            lbPoints.PreferredSize = btSize;
             lbPoints.Opacity = 0.5f;
             lbPoints.TextBlock.Alignment = Alignment.Left;
-            lbPoints.TextBlock.PreferredPosition = new Point(10, 0);
+            lbPoints.TextBlock.PreferredPosition = new Point(10 * multiplier, 0);
             this.scene.AddChild(lbPoints);
 
             lbStackedBlocks = new Label(mediumFont, "Blocks: 0");
             lbStackedBlocks.Alignment = Alignment.TopLeft;
-            lbStackedBlocks.PreferredPosition = new Point(30, 70);
-            lbStackedBlocks.PreferredSize = new Point(150, 40);
+            lbStackedBlocks.PreferredPosition = new Point(30 * multiplier, 70 * multiplier);
+            lbStackedBlocks.PreferredSize = btSize;
             lbStackedBlocks.Opacity = 0.5f;
             lbStackedBlocks.TextBlock.Alignment = Alignment.Left;
-            lbStackedBlocks.TextBlock.PreferredPosition = new Point(10, 0);
+            lbStackedBlocks.TextBlock.PreferredPosition = new Point(10 * multiplier, 0);
             this.scene.AddChild(lbStackedBlocks);
 
             lbPointsGained = new Label(veryLargeFont, "+");
@@ -98,8 +108,8 @@ namespace StackItUp
 
             btPause = new Button(mediumFont, "Pause");
             btPause.Alignment = Alignment.TopRight;
-            btPause.PreferredPosition = new Point(-30, 30);
-            btPause.PreferredSize = new Point(150, 40);
+            btPause.PreferredPosition = new Point(-30 * multiplier, 30 * multiplier);
+            btPause.PreferredSize = btSize;
             btPause.Opacity = 0.5f;
             btPause.Border.Thickness = 0;
             this.scene.AddChild(btPause);
@@ -110,6 +120,16 @@ namespace StackItUp
             SpriteFont mediumFont = Assets.Get<SpriteFont>("Fonts/Arial16");
             SpriteFont largeFont = Assets.Get<SpriteFont>("Fonts/Arial24");
 
+            int multiplier = 1;
+            Point btSize = new Point(160, 40);
+            if (MonoGame.Framework.Utilities.PlatformInfo.MonoGamePlatform == MonoGame.Framework.Utilities.MonoGamePlatform.Android)
+            {
+                mediumFont = Assets.Get<SpriteFont>("Fonts/Arial16x2");
+                largeFont = Assets.Get<SpriteFont>("Fonts/Arial24x2");
+                multiplier = 2;
+                btSize = new Point(160 * 2, 40 * 2);
+            }
+
             this.pausePanel = new Panel();
             this.pausePanel.Alignment = Alignment.Stretch;
             this.pausePanel.Opacity = 0.75f;
@@ -117,21 +137,24 @@ namespace StackItUp
 
             TextBlock headLine = new TextBlock(largeFont, "Pause Menu");
             headLine.Alignment = Alignment.Center;
-            headLine.PreferredPosition = new Point(0, -150);
+            headLine.PreferredPosition = new Point(0, -150 * multiplier);
             this.pausePanel.AddChild(headLine);
 
             this.btContinue = new Button(mediumFont, "Continue");
             this.btContinue.Alignment = Alignment.Center;
-            this.btContinue.PreferredPosition = new Point(0, -50);
+            this.btContinue.PreferredSize = btSize;
+            this.btContinue.PreferredPosition = new Point(0, -50 * multiplier);
             this.pausePanel.AddChild(this.btContinue);
 
             this.btRestart = new Button(mediumFont, "Restart");
             this.btRestart.Alignment = Alignment.Center;
+            this.btRestart.PreferredSize = btSize;
             this.pausePanel.AddChild(this.btRestart);
 
             this.btBackToMain = new Button(mediumFont, "Back to Main");
             this.btBackToMain.Alignment = Alignment.Center;
-            this.btBackToMain.PreferredPosition = new Point(0, 50);
+            this.btBackToMain.PreferredSize = btSize;
+            this.btBackToMain.PreferredPosition = new Point(0, 50 * multiplier);
             this.pausePanel.AddChild(this.btBackToMain);
 
             //this.pausePanel.Hide();

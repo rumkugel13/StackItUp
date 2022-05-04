@@ -24,8 +24,11 @@
     <MonoGameContentReference Include="$(MSBuildThisFileDirectory)Content\Content.mgcb" />
     <None Include="$(MSBuildThisFileDirectory)Content\Content.mgcb" />
     <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Arial16.spritefont" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Arial16x2.spritefont" />
     <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Arial24.spritefont" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Arial24x2.spritefont" />
     <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Arial32.spritefont" />
+    <None Include="$(MSBuildThisFileDirectory)Content\Fonts\Arial32x2.spritefont" />
     <None Include="$(MSBuildThisFileDirectory)Content\SoundEffects\stomp.wav" />
     <None Include="$(MSBuildThisFileDirectory)Content\Spritesheets\tower_block_sheet.xml" />
     <None Include="$(MSBuildThisFileDirectory)Content\Textures\bottom_block_32.png" />
