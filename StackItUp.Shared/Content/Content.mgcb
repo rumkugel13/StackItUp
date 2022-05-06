@@ -56,11 +56,83 @@
 /processorParam:TextureFormat=Compressed
 /build:Fonts/Arial32x2.spritefont
 
+#begin SoundEffects/bing1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/bing1.wav
+
+#begin SoundEffects/bong1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/bong1.wav
+
+#begin SoundEffects/clink1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/clink1.wav
+
+#begin SoundEffects/clink2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/clink2.wav
+
+#begin SoundEffects/clink3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/clink3.wav
+
+#begin SoundEffects/metal_button_press1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/metal_button_press1.wav
+
+#begin SoundEffects/metal_button_press2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/metal_button_press2.wav
+
+#begin SoundEffects/metal_interaction1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/metal_interaction1.wav
+
+#begin SoundEffects/metal_interaction2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/metal_interaction2.wav
+
+#begin SoundEffects/metal_swing1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/metal_swing1.wav
+
 #begin SoundEffects/stomp.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:SoundEffects/stomp.wav
+
+#begin SoundEffects/thud2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/thud2.wav
+
+#begin SoundEffects/thud3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SoundEffects/thud3.wav
 
 #begin Spritesheets/tower_block_sheet.xml
 /importer:XmlImporter

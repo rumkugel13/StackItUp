@@ -36,4 +36,20 @@
     <None Include="$(MSBuildThisFileDirectory)Content\Textures\tower_block_sheet.png" />
     <None Include="$(MSBuildThisFileDirectory)CREDITS.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Content\SoundEffects\bing1.wav" />
+    <None Include="$(MSBuildThisFileDirectory)Content\SoundEffects\bong1.wav" />
+    <None Include="$(MSBuildThisFileDirectory)Content\SoundEffects\clink1.wav" />
+    <None Include="$(MSBuildThisFileDirectory)Content\SoundEffects\clink2.wav" />
+    <None Include="$(MSBuildThisFileDirectory)Content\SoundEffects\clink3.wav" />
+    <None Include="$(MSBuildThisFileDirectory)Content\SoundEffects\thud2.wav" />
+    <None Include="$(MSBuildThisFileDirectory)Content\SoundEffects\thud3.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Content\SoundEffects\metal_button_press1.wav" />
+    <None Include="$(MSBuildThisFileDirectory)Content\SoundEffects\metal_button_press2.wav" />
+    <None Include="$(MSBuildThisFileDirectory)Content\SoundEffects\metal_interaction1.wav" />
+    <None Include="$(MSBuildThisFileDirectory)Content\SoundEffects\metal_interaction2.wav" />
+    <None Include="$(MSBuildThisFileDirectory)Content\SoundEffects\metal_swing1.wav" />
+  </ItemGroup>
 </Project>

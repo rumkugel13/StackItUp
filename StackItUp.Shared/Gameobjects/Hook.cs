@@ -4,6 +4,7 @@ using Kadro.Input;
 using Kadro.Physics;
 using Kadro.Tweening;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using StackItUp.Shared.Components;
 using System;
@@ -61,6 +62,9 @@ namespace StackItUp.Shared.Gameobjects
             this.releaseAction.Add(new GamepadAction(Microsoft.Xna.Framework.Input.Buttons.A, ActionType.OnUp));
             // todo: restrict touchpanel action to playarea, to not trigger on e.g. some pause button
             this.releaseAction.Add(new TouchpanelAction(ActionType.OnUp));
+
+            // add soundeffect
+            this.Add(new SoundComponent(Assets.Get<SoundEffect>(Folders.SoundEffects, "metal_button_press1")));
         }
 
         public void Attach(Towerblock towerblock)
@@ -82,6 +86,13 @@ namespace StackItUp.Shared.Gameobjects
             this.currentBlock.Transform.Position = this.currentBlock.Transform.WorldPosition;
             this.currentBlock.Transform.Parent = null;
             this.currentBlock.Drop();
+
+            SoundComponent stomp = this.Components.Get<SoundComponent>();
+
+            if (!stomp.IsRunning)
+            {
+                stomp.PlayPitched(0.5f);
+            }
         }
 
         private void AddSpawnAnimation()
