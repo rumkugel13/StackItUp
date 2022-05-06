@@ -12,3 +12,13 @@ stomp - SoundEffect:
 - https://opengameart.org/content/mech-stomp-step-sound
 - License: CC0 public domain
 - Copyright: © 2012 qubodup
+
+bing1, bong1, clink1, clink2, clink3, thud2, thud3 - SoundEffects:
+- https://opengameart.org/content/metal-impact-sounds
+- License: CC0 public domain
+- Copyright: © 2020 BMacZero
+
+metal_[button_press1/button_press2/interaction1/interaction2/swing1] - SoundEffects:
+- https://opengameart.org/content/metal-interactions
+- License: CC0 public domain
+- Copyright: © 2011 qubodup
