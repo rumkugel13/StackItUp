@@ -86,12 +86,12 @@ namespace StackItUp.Shared.Gameobjects
 
         private void AddSpawnAnimation()
         {
-            this.appearAnimation = new Tweening(this.Transform.Position.X, this.Transform.Position.X < 0 ? -AnimationDestination : +AnimationDestination, 1f, new InSine());
+            this.appearAnimation = new Tweening(this.Transform.Position.X, this.Transform.Position.X < 0 ? -AnimationDestination : +AnimationDestination, .7f, new OutSine());
         }
 
         private void AddDisappearAnimation()
         {
-            this.disappearAnimation = new Tweening(this.Transform.Position.X, movingRight ? SpawnPosition.X : -SpawnPosition.X, 1f, new OutSine());
+            this.disappearAnimation = new Tweening(this.Transform.Position.X, movingRight ? SpawnPosition.X : -SpawnPosition.X, 1f, new InSine());
         }
 
         private void AddMoveAnimation()
