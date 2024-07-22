@@ -3,7 +3,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <OutputType>WinExe</OutputType>
     <MonoGamePlatform>DesktopGL</MonoGamePlatform>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <AssemblyTitle>StackItUp.DesktopGL</AssemblyTitle>
     <Product>StackItUp.DesktopGL</Product>
     <Copyright>Copyright © rumkugel13 2020</Copyright>
@@ -24,7 +24,6 @@
     <Version>0.1.0</Version>
   </PropertyGroup>
   <Import Project="..\StackItUp.Shared\StackItUp.Shared.projitems" Label="Shared" />
-  <Import Project="..\packages\MonoGame.Framework.DesktopGL.3.8.0.1641\build\MonoGame.Framework.DesktopGL.targets" Condition="Exists('..\packages\MonoGame.Framework.DesktopGL.3.8.0.1641\build\MonoGame.Framework.DesktopGL.targets')" />
   <ItemGroup Condition="'$(Configuration)' == 'Debug'">
     <Reference Include="Kadro, Version=0.4.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\Libraries\Debug\Kadro.dll</HintPath>
@@ -38,6 +37,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include=".config\dotnet-tools.json" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
     <EmbeddedResource Include="Icon.bmp" />
   </ItemGroup>
@@ -45,7 +47,11 @@
     <None Include="app.manifest" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.0.1641" />
-    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.0.1641" />
+    <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.1.303" />
+    <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.1.303" />
   </ItemGroup>
+  <Target Name="RestoreDotnetTools" BeforeTargets="Restore">
+	  <Message Text="Restoring dotnet tools" Importance="High" />
+	  <Exec Command="dotnet tool restore" />
+  </Target>
 </Project>
