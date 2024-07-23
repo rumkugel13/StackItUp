@@ -18,15 +18,18 @@ namespace StackItUp.Shared.Gameobjects
         float minX, maxX, minY, maxY;
         bool movingX;
 
-        public Cloud()
+        SpriteSheet sheet;
+
+        public Cloud(SpriteSheet sheet)
         {
+            this.sheet = sheet;
             this.Initialize();
         }
 
         private void Initialize()
         {
             int id = random.Next(3);
-            Sprite s = Assets.SpriteFromSheet("cloud_" + id);
+            Sprite s = this.sheet.GetSprite("cloud_" + id);
             float height = MinHeight + (float)random.NextDouble() * (MaxHeight - MinHeight);
 
             this.Add(new SpriteComponent(s, new Vector2(s.Source.Width / 8, s.Source.Height / 8)));

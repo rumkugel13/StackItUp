@@ -5,6 +5,7 @@ using Kadro.Physics;
 using Kadro.Tweening;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using StackItUp.Shared.Components;
 using System;
@@ -29,13 +30,18 @@ namespace StackItUp.Shared.Gameobjects
         private bool movingRight;
         private float lastX, animationDuration;
 
+        SpriteSheet sheet;
+        ContentManager content;
+
         public enum HookState
         {
             Appearing, Moving, Disappearing
         }
 
-        public Hook(Vector2 position)
+        public Hook(ContentManager content, SpriteSheet sheet, Vector2 position)
         {
+            this.content = content;
+            this.sheet = sheet;
             this.Initialize(position);
         }
 
@@ -44,11 +50,11 @@ namespace StackItUp.Shared.Gameobjects
             this.Transform.Position = position;
 
             // add sprites
-            TransformSpriteComponent c = new TransformSpriteComponent(Assets.SpriteFromSheet("hook"), SpriteSize);
+            TransformSpriteComponent c = new TransformSpriteComponent(this.sheet.GetSprite("hook"), SpriteSize);
             c.Transform.Position = new Vector2(-Towerblock.Size.X / 2f + 1 / 5f * Towerblock.Size.X, 0f);
             this.Add(c);
 
-            c = new TransformSpriteComponent(Assets.SpriteFromSheet("hook"), SpriteSize);
+            c = new TransformSpriteComponent(this.sheet.GetSprite("hook"), SpriteSize);
             c.Transform.Position = new Vector2(+Towerblock.Size.X / 2f - 1 / 5f * Towerblock.Size.X, 0f);
             this.Add(c);
 
@@ -64,7 +70,7 @@ namespace StackItUp.Shared.Gameobjects
             this.releaseAction.Add(new TouchpanelAction(ActionType.OnUp));
 
             // add soundeffect
-            this.Add(new SoundComponent(Assets.Get<SoundEffect>(Folders.SoundEffects, "metal_button_press1")));
+            this.Add(new SoundComponent(this.content.Load<SoundEffect>(Folders.SoundEffects + "/metal_button_press1")));
         }
 
         public void Attach(Towerblock towerblock)

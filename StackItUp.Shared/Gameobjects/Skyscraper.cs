@@ -7,16 +7,19 @@ namespace StackItUp.Shared.Gameobjects
 {
     public class Skyscraper : GameObject
     {
-        public Skyscraper(Vector2 position)
+        SpriteSheet sheet;
+
+        public Skyscraper(SpriteSheet sheet, Vector2 position)
         {
+            this.sheet = sheet;
             this.Initialize(position);
         }
 
         private void Initialize(Vector2 position)
         {
             this.Transform.Position = position;
-
-            this.Add(new SpriteComponent(Assets.SpriteFromSheet("background_skyscraper"), new Vector2(4f, 12f)));
+            
+            this.Add(new SpriteComponent(this.sheet.GetSprite("background_skyscraper"), new Vector2(4f, 12f)));
         }
 
         public override void OnAdded(GameObjectWorld gameObjectWorld)

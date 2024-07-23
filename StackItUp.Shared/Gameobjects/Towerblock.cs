@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using Microsoft.Xna.Framework.Content;
 
 namespace StackItUp.Shared.Gameobjects
 {
@@ -24,8 +25,13 @@ namespace StackItUp.Shared.Gameobjects
         private float lastX, timeSinceFirstContact;
         private bool firstContact = false;
 
-        public Towerblock(Vector2 pos, bool bottom = false)
+        SpriteSheet sheet;
+        ContentManager content;
+
+        public Towerblock(ContentManager content, SpriteSheet sheet, Vector2 pos, bool bottom = false)
         {
+            this.content = content;
+            this.sheet = sheet;
             this.Initialize(pos, bottom);
         }
 
@@ -52,7 +58,7 @@ namespace StackItUp.Shared.Gameobjects
 
             if (bottom)
             {
-                this.Add(new SpriteComponent(Assets.SpriteFromSheet("bottom_block_32"), Size));
+                this.Add(new SpriteComponent(this.sheet.GetSprite("bottom_block_32"), Size));
                 this.Components.Get<RigidBodyComponent>().RigidBody.SetBodyType(BodyType.Static);
                 this.State = BlockState.Stacked;
             }
@@ -61,12 +67,12 @@ namespace StackItUp.Shared.Gameobjects
                 // todo: "randomly" choose texture not used before (in this sequence/permutation)
                 int i = random.Next(ImageCount) + 1;
 
-                this.Add(new SpriteComponent(Assets.SpriteFromSheet("tower_block_" + i + "_32"), Size));
+                this.Add(new SpriteComponent(this.sheet.GetSprite("tower_block_" + i + "_32"), Size));
                 this.Components.Get<RigidBodyComponent>().RigidBody.SetBodyType(BodyType.Kinematic);
             }
 
             // add soundeffect
-            this.Add(new SoundComponent(Assets.Get<SoundEffect>(Folders.SoundEffects, "stomp")));
+            this.Add(new SoundComponent(this.content.Load<SoundEffect>(Folders.SoundEffects + "/stomp")));
         }
 
         public override void OnAdded(GameObjectWorld gameObjectWorld)

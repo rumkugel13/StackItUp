@@ -69,12 +69,12 @@ namespace StackItUp
 
         private void CreateScene()
         {
-            SpriteFont largeFont = Assets.Get<SpriteFont>("Fonts/Arial24");
+            SpriteFont largeFont = this.Game.Content.Load<SpriteFont>("Fonts/Arial24");
             Point btSize = new Point(400, 50);
             int multiplier = 1;
             if (MonoGame.Framework.Utilities.PlatformInfo.MonoGamePlatform == MonoGame.Framework.Utilities.MonoGamePlatform.Android)
             {
-                largeFont = Assets.Get<SpriteFont>("Fonts/Arial24x2");
+                largeFont = this.Game.Content.Load<SpriteFont>("Fonts/Arial24x2");
                 multiplier = 2;
                 btSize = new Point(400 * 2, 50 * 2);
             }

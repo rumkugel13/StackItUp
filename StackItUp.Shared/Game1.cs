@@ -79,8 +79,6 @@ namespace StackItUp.Shared
             this.Components.Add(new GamepadInput(this));
             this.Components.Add(new TouchpanelInput(this));
 
-            Assets.Initialize(Content);
-
             base.Initialize();
         }
 

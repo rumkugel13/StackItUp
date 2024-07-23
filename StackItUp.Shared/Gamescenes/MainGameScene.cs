@@ -36,6 +36,8 @@ namespace StackItUp
         private const float moveDuration = 1f;  // 1 second
         private const int stackCapacity = 5;
 
+        SpriteSheet sheet;
+
         public MainGameScene(Game game) : base(game)
         {
             this.scene = new GUIScene();
@@ -60,15 +62,15 @@ namespace StackItUp
 
         private void CreateScene()
         {
-            SpriteFont mediumFont = Assets.Get<SpriteFont>("Fonts/Arial16");
-            SpriteFont veryLargeFont = Assets.Get<SpriteFont>("Fonts/Arial32");
+            SpriteFont mediumFont = this.Game.Content.Load<SpriteFont>("Fonts/Arial16");
+            SpriteFont veryLargeFont = this.Game.Content.Load<SpriteFont>("Fonts/Arial32");
 
             int multiplier = 1;
             Point btSize = new Point(150, 40);
             if (MonoGame.Framework.Utilities.PlatformInfo.MonoGamePlatform == MonoGame.Framework.Utilities.MonoGamePlatform.Android)
             {
-                mediumFont = Assets.Get<SpriteFont>("Fonts/Arial16x2");
-                veryLargeFont = Assets.Get<SpriteFont>("Fonts/Arial32x2");
+                mediumFont = this.Game.Content.Load<SpriteFont>("Fonts/Arial16x2");
+                veryLargeFont = this.Game.Content.Load<SpriteFont>("Fonts/Arial32x2");
                 multiplier = 2;
                 btSize = new Point(150 * 2, 40 * 2);
             }
@@ -117,15 +119,15 @@ namespace StackItUp
 
         private void CreatePauseMenu()
         {
-            SpriteFont mediumFont = Assets.Get<SpriteFont>("Fonts/Arial16");
-            SpriteFont largeFont = Assets.Get<SpriteFont>("Fonts/Arial24");
+            SpriteFont mediumFont = this.Game.Content.Load<SpriteFont>("Fonts/Arial16");
+            SpriteFont largeFont = this.Game.Content.Load<SpriteFont>("Fonts/Arial24");
 
             int multiplier = 1;
             Point btSize = new Point(160, 40);
             if (MonoGame.Framework.Utilities.PlatformInfo.MonoGamePlatform == MonoGame.Framework.Utilities.MonoGamePlatform.Android)
             {
-                mediumFont = Assets.Get<SpriteFont>("Fonts/Arial16x2");
-                largeFont = Assets.Get<SpriteFont>("Fonts/Arial24x2");
+                mediumFont = this.Game.Content.Load<SpriteFont>("Fonts/Arial16x2");
+                largeFont = this.Game.Content.Load<SpriteFont>("Fonts/Arial24x2");
                 multiplier = 2;
                 btSize = new Point(160 * 2, 40 * 2);
             }
@@ -176,7 +178,8 @@ namespace StackItUp
             GUISceneManager.SwitchScene(this.scene);
 
             // load spritesheet for textures
-            Assets.LoadSpriteSheet("tower_block_sheet");
+            sheet = this.Game.Content.Load<SpriteSheet>(Folders.Spritesheets + "/tower_block_sheet");
+            sheet.SetTexture(this.Game.Content.Load<Texture2D>(Folders.Textures + "/tower_block_sheet"));
 
             // TODO: add gameobjects here
             this.CreateGameObjects();
@@ -363,27 +366,27 @@ namespace StackItUp
 
         private void CreateBackground()
         {
-            this.gameObjectWorld.Add(new Skyscraper(new Vector2(-1f, -1.5f)));
-            this.gameObjectWorld.Add(new Skyscraper(new Vector2(-5f, +1.5f)));
-            this.gameObjectWorld.Add(new Skyscraper(new Vector2(3f, +0.76f)));
-            this.gameObjectWorld.Add(new Skyscraper(new Vector2(7f, +1.12f)));
+            this.gameObjectWorld.Add(new Skyscraper(this.sheet, new Vector2(-1f, -1.5f)));
+            this.gameObjectWorld.Add(new Skyscraper(this.sheet, new Vector2(-5f, +1.5f)));
+            this.gameObjectWorld.Add(new Skyscraper(this.sheet, new Vector2(3f, +0.76f)));
+            this.gameObjectWorld.Add(new Skyscraper(this.sheet, new Vector2(7f, +1.12f)));
 
-            this.gameObjectWorld.Add(new Cloud());
-            this.gameObjectWorld.Add(new Cloud());
-            this.gameObjectWorld.Add(new Cloud());
+            this.gameObjectWorld.Add(new Cloud(this.sheet));
+            this.gameObjectWorld.Add(new Cloud(this.sheet));
+            this.gameObjectWorld.Add(new Cloud(this.sheet));
 
-            this.gameObjectWorld.Add(new Ground(new Vector2(0, Towerblock.Size.Y)));
+            this.gameObjectWorld.Add(new Ground(this.sheet, new Vector2(0, Towerblock.Size.Y)));
         }
 
         private void CreateStaticBlocks()
         {
             // tower blocks at the start of the game
-            Towerblock bottom = new Towerblock(Vector2.Zero, true);
+            Towerblock bottom = new Towerblock(this.Game.Content, sheet, Vector2.Zero, true);
             this.towerStack.Enqueue(bottom);
             this.gameObjectWorld.Add(bottom);
 
             // first floor, already fixed
-            Towerblock t = new Towerblock(new Vector2(0, -Towerblock.Size.Y));
+            Towerblock t = new Towerblock(this.Game.Content, sheet, new Vector2(0, -Towerblock.Size.Y));
             t.FixPosition();
             this.gameObjectWorld.Add(t);
             this.towerStack.Enqueue(t);
@@ -397,7 +400,7 @@ namespace StackItUp
                 this.hook.SpeedUp();
             }
 
-            this.currentBlock = new Towerblock(new Vector2(0, -3 * Towerblock.Size.Y));
+            this.currentBlock = new Towerblock(this.Game.Content, sheet, new Vector2(0, -3 * Towerblock.Size.Y));
 
             if (this.towerStack.Count > stackCapacity)
             {
@@ -419,7 +422,7 @@ namespace StackItUp
 
         private void CreateHooks()
         {
-            this.hook = new Hook(Hook.SpawnPosition);
+            this.hook = new Hook(this.Game.Content, sheet, Hook.SpawnPosition);
             this.gameObjectWorld.Add(this.hook);
         }
 

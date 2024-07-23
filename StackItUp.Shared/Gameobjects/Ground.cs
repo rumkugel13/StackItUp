@@ -12,8 +12,11 @@ namespace StackItUp.Shared.Gameobjects
 {
     public class Ground : GameObject
     {
-        public Ground(Vector2 position)
+        SpriteSheet sheet;
+
+        public Ground(SpriteSheet sheet, Vector2 position)
         {
+            this.sheet = sheet;
             this.Initialize(position);
         }
 
@@ -21,7 +24,7 @@ namespace StackItUp.Shared.Gameobjects
         {
             this.Transform.Position = position;
 
-            this.Add(new SpriteComponent(Assets.SpriteFromSheet("ground"), new Vector2(12f, 4f)));
+            this.Add(new SpriteComponent(this.sheet.GetSprite("ground"), new Vector2(12f, 4f)));
 
             RigidBodyComponent rigidBodyComponent = new RigidBodyComponent();
             RigidBody rigidBody = rigidBodyComponent.RigidBody;
